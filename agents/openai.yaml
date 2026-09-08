@@ -1,0 +1,9 @@
+interface:
+  display_name: "免费抖音作品拆解与原创改写"
+  short_description: "免费免第三方内容 API Key，拆解抖音作品并生成原创口播分镜"
+  icon_small: "./assets/icon-512.png"
+  icon_large: "./assets/icon-512.png"
+  brand_color: "#665CFF"
+  default_prompt: "使用 $douyin-viral-remake-free 拆解我提供的一条抖音作品，并按我的账号定位生成原创口播与分镜。"
+policy:
+  allow_implicit_invocation: true
