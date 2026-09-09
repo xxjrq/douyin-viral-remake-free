@@ -9,7 +9,7 @@ const ACTIONS = new Set(['navigate', 'snapshot', 'screenshot', 'close_session'])
 const SECRET = /(?:authorization|cookie|token|browser(?:-|_)?id|session)\s*[:=]\s*[^\s,;]+|FAKE_SECRET_VALUE/gi;
 const SECRET_TEST = /(?:authorization|cookie|token|browser(?:-|_)?id|session)\s*[:=]\s*[^\s,;]+|FAKE_SECRET_VALUE/i;
 const SECRET_KEY = /authorization|cookie|token|browserid|session/i;
-const CLAIM = /(?:\d|售价|价格|元|提升|保证|有效|资质|认证|期限|数据|案例|第一|最好|唯一)/;
+const CLAIM = /(?:保证.{0,8}(?:赚钱|收益|成功|有效|提升|降低|节省|转化|流量|涨粉)|稳赚|零风险|百分之百|100%|永久有效|绝对(?:安全|有效)|官方(?:排名|数据)|排名第\s*1|(?:提升|降低|节省)\s*\d+(?:\.\d+)?%|唯一官方)/;
 const CONFIDENCE = new Set(['none', 'low', 'medium', 'high']);
 const COMPLETE_SCOPES = new Set(['video-text-and-keyframes', 'note-body-and-image-order']);
 const usage = message => Object.assign(new Error(message), { usage: true });
@@ -454,6 +454,9 @@ async function selfTest() {
   const claims = structuredClone(ready);
   claims.remake.cta = '售价999元，并保证提升效率。';
   expect(() => validate(fullVideo, claims), 'cta claim');
+  const ordinaryIncome = structuredClone(ready);
+  ordinaryIncome.remake.cta = '这个方向常见月薪1.8万到3.5万。';
+  validate(fullVideo, ordinaryIncome);
   const bridgeCalls = [];
   const fake = {
     async list() { return [{ browserId: 'b', online: true }]; },
@@ -484,7 +487,7 @@ async function selfTest() {
   }
   fs.rmSync(tokenFile, { force: true });
   fs.rmSync(path.dirname(outputFile), { recursive: true, force: true });
-  return { ok: true, tests: 32, offline: true };
+  return { ok: true, tests: 33, offline: true };
 }
 
 async function main() {

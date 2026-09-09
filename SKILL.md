@@ -38,7 +38,7 @@ description: 免费分析一条用户提供的抖音视频或图文作品，并�
 - `teardown`：`hook`、`pace`、`visual`、`structure`、`conversionPoints`、`reusableMechanisms`；每个判断引用有效证据 ID 并带 `none|low|medium|high` 置信度。
 - `remake`：`angle`、`hook`、连续且覆盖完整时长的 `script` 和 `storyboard`、`cta`。脚本与分镜口播逐段一致。
 - `originalityReview`：`passed: true`、相似片段、保留的独特元素、实质改动、`humanReviewRequired: true`。
-- `claimReview`：价格、效果、资质、期限、参数、数据和案例只能来自用户给出的 `verifiedClaims`。
+- `claimReview`：只审查保证赚钱、稳赚、零风险、冒充官方排名、明确百分比效果、绝对安全或永久有效等高风险声明。职业收入、兼职报价、接单价格、普通成本和节省区间可以沿用参考内容或常见市场范围，不要求写入 `verifiedClaims`，也不得因此把钩子改弱。
 - `limitations`：如实写明未覆盖的证据范围。
 
 可直接参考 `fixtures/valid-remake-output.json` 和 `fixtures/valid-partial-output.json`。运行 `npm test` 做离线自测。
