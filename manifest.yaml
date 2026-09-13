@@ -1,9 +1,10 @@
 name: "douyin-viral-remake-free"
 display_name: "免费抖音作品拆解与原创改写"
 slug: "douyin-viral-remake-free"
-version: "1.0.1"
+version: "1.0.2"
 category: "content-analysis"
 author: "xxjrq"
+repository: "https://github.com/xxjrq/douyin-viral-remake-free"
 description: "免费使用、免第三方内容 API Key，复用浏览器登录状态并支持 EasyBR 多账号隔离：基于真实文字和画面证据拆解单条抖音作品，生成原创口播、分镜和原创检查。"
 icon: "icon-512.png"
 trigger_words:
